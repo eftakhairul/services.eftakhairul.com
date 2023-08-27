@@ -85,7 +85,7 @@
     <div class="d-flex text-muted pt-3">
       <div class="pb-3 mb-0 small lh-sm border-bottom">      
           <label>Bypass paywall: </label>      
-          <input type="text" class="input-medium search-query" id='safe-browser-link'>
+          <input type="text" class="input-medium search-query" id='bypass-paywall-link'>
           <button type="submit" class="btn btn-primary" onclick="bypassPaywall(event)">Check</button>        
       </div>
     </div>
@@ -136,7 +136,7 @@
     //bypassing paywall
     function bypassPaywall(event) {
       event.preventDefault();
-      var urlForBypassingPaywall = document.getElementById("safe-browser-link").value;
+      var urlForBypassingPaywall = document.getElementById("bypass-paywall-link").value;
        if (isValidURL(urlForBypassingPaywall) ) {
         alert("URL is invalid");
         return false;
