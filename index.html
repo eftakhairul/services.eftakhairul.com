@@ -135,29 +135,31 @@
     // check for safebrowser
     function safeBrowserCheck(event) {
       event.preventDefault();
-      var urlForCheckSafeBrowser = document.getElementById("safe-browser-link").value;
+      let urlForCheckSafeBrowser = document.getElementById("safe-browser-link").value;
+      urlForCheckSafeBrowser = removeHttpAndHttps(urlForCheckSafeBrowser);
       if (isValidURL(urlForCheckSafeBrowser) ) {
         alert("URL is invalid");
         return false;
       }           
-      window.location.replace("https://transparencyreport.google.com/safe-browsing/search?url=" + removeHttpAndHttps(urlForCheckSafeBrowser));
+      window.location.replace("https://transparencyreport.google.com/safe-browsing/search?url=" + urlForCheckSafeBrowser);
     }
 
     //bypassing paywall
     function bypassPaywall(event) {
       event.preventDefault();
-      var urlForBypassingPaywall = document.getElementById("bypass-paywall-link").value;
+      let urlForBypassingPaywall = document.getElementById("bypass-paywall-link").value;
+      urlForBypassingPaywall = removeHttpAndHttps(urlForBypassingPaywall);
        if (isValidURL(urlForBypassingPaywall) ) {
         alert("URL is invalid");
         return false;
       }           
-      window.location.replace("https://12ft.io/" + removeHttpAndHttps(urlForBypassingPaywall));
+      window.location.replace("https://12ft.io/" + urlForBypassingPaywall);
     }
   </script>
 
   <script type="application/javascript">      
     function getIP(json) {        
-      var content = `Your IP: ${json.ip} | City: ${json.city} | Location: ${json.loc} | Timezone: ${json.timezone}`;      
+      const content = `Your IP: ${json.ip} | City: ${json.city} | Location: ${json.loc} | Timezone: ${json.timezone}`;      
       document.getElementById('ip-address').innerHTML = content;                    
     }
   </script>  
