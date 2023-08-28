@@ -122,6 +122,16 @@
       }
     }
 
+    function removeHttpAndHttps(url) {
+      // Remove "http://" if present
+      url = url.replace(/^http:\/\//i, '');
+    
+      // Remove "https://" if present
+      url = url.replace(/^https:\/\//i, '');
+    
+      return url;
+    }
+
     // check for safebrowser
     function safeBrowserCheck(event) {
       event.preventDefault();
@@ -130,7 +140,7 @@
         alert("URL is invalid");
         return false;
       }           
-      window.location.replace("https://transparencyreport.google.com/safe-browsing/search?url=" + urlForCheckSafeBrowser);
+      window.location.replace("https://transparencyreport.google.com/safe-browsing/search?url=" + removeHttpAndHttps(urlForCheckSafeBrowser));
     }
 
     //bypassing paywall
@@ -141,7 +151,7 @@
         alert("URL is invalid");
         return false;
       }           
-      window.location.replace("https://12ft.io/" + urlForBypassingPaywall);
+      window.location.replace("https://12ft.io/" + removeHttpAndHttps(urlForBypassingPaywall));
     }
   </script>
 
